@@ -12,16 +12,16 @@
 ---
 ## modelagem: Escola
 
- link Conceitual: 
+ link Conceitual: https://app.brmodeloweb.com/#!/publicview/69dfcc21e7f0a96088a45ac4
 
- link Lógico: 
+ link Lógico: https://app.brmodeloweb.com/#!/publicview/69dfcc46e7f0a96088a45adc
 
 ---
 ## modelagem: Filmes
 
- link Conceitual: 
+ link Conceitual: https://app.brmodeloweb.com/#!/publicview/69dfe715e7f0a96088a4689d
 
- link Lógico: 
+ link Lógico: https://app.brmodeloweb.com/#!/publicview/69dfe6fde7f0a96088a46887
 
 ## modelagem: Veterinária
 
