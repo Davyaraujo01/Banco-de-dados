@@ -31,4 +31,11 @@
 
 ---
 
- 
+ ## modelagem: Tatuagem
+
+ link Conceitual: https://app.brmodeloweb.com/#!/publicview/69fba7259ae9da54107954cc
+
+ link Lógico: https://app.brmodeloweb.com/#!/publicview/69fba73c9ae9da54107954db
+
+---
+
