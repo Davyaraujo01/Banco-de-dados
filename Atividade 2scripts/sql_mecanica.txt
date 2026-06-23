@@ -1,0 +1,64 @@
+CREATE TABLE cliente 
+( 
+ idcliente INT PRIMARY KEY auto_increment,  
+ nome varchar(100) NOT NULL,  
+ telefone varchar(100) NOT NULL,  
+ email varchar(100) unique NOT NULL,  
+ cidade varchar(100) NOT NULL
+); 
+
+CREATE TABLE veiculo 
+( 
+ idveiculo varchar(10) primary key,  
+ idcliente INT NOT NULL,  
+ cor varchar(100) NOT NULL,  
+ modelo varchar(100) NOT NULL,  
+ ano varchar(100) NOT NULL,  
+ marca varchar(100) NOT NULL,  
+ FOREIGN KEY(idcliente) REFERENCES cliente (idcliente)
+); 
+
+CREATE TABLE mecanico 
+( 
+ idmecanico INT PRIMARY KEY auto_increment,  
+ cpf varchar(20) unique NOT NULL,  
+ telefone varchar(20) null,  
+ nome varchar(100) NOT NULL,  
+ dataadmissao date NOT NULL,  
+ email varchar(100) unique NOT NULL
+); 
+
+CREATE TABLE servico 
+( 
+ codservico INT PRIMARY KEY auto_increment,  
+ nome varchar(100) NOT NULL,  
+ tempomedio varchar(100) NOT NULL,  
+ descricao text NOT NULL  
+); 
+
+CREATE TABLE ordemservico 
+( 
+ idordem INT PRIMARY KEY auto_increment,  
+ datainicioordem date NOT NULL,  
+ datafimordem date null,  
+ status varchar(100) NOT NULL,  
+ valor decimal(10,2) null,  
+ problemarelatado varchar(1000) NOT NULL,  
+ idveiculo varchar(10) NOT NULL,  
+ FOREIGN KEY(idveiculo) REFERENCES veiculo (idveiculo)
+); 
+
+CREATE TABLE servicos_mecanicos 
+( 
+ codserv_mec INT PRIMARY KEY auto_increment,  
+ idmecanico INT NOT NULL,  
+ codservico INT NOT NULL,  
+ idordem INT NOT NULL,  
+ observacao varchar(100) NOT NULL,  
+ datainicioservico date NOT NULL,  
+ datafinalizacaoservico date NOT NULL,  
+ valorunitario decimal(10,2),  
+ FOREIGN KEY(idmecanico) REFERENCES mecanico (idmecanico),
+ FOREIGN KEY(codservico) REFERENCES servico (codservico),
+ FOREIGN KEY(idordem) REFERENCES ordemservico (idordem)
+)
