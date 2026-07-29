@@ -1,0 +1,6 @@
+INSERT INTO servico(servico, tipo, valor) VALUES
+	('Fanta', 'bebida','19,99'),
+	('Doritos', 'comida','25,99'),
+	('Lava roupas', 'Limpeza','10,99'),
+	('Macacão de banho', 'Lazer','29,50'),
+	('Frentista', 'Lazer','7,50');
