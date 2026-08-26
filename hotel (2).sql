@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/08/2026 às 22:44
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 26/08/2026 às 22:55
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,13 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`codcliente`, `cliente`, `email`, `cpf`) VALUES
 (1, 'Davyzão', 'davyzão@gmail.com', '232.555.777-12'),
 (2, 'Alex d.', 'alexzão244@gmail.com', '242.534.787-67'),
-(3, 'hehe', 'hehezão@gmail.com', '237.537.789-96');
+(3, 'hehe', 'hehezinho@gmail.com', '237.537.789-96'),
+(4, 'Felipe', 'filipinho@gmail.com', '244.157.171-13'),
+(5, 'Kauã', 'kauãpreto@gmail.com', '533.518.244-22'),
+(6, 'Kauan', 'kauanest244@gmail.com', '267.596.276-38'),
+(7, 'Caue', 'cauemil@gmail.com', '244.178,388-34'),
+(8, 'dudu', 'duzinho@gmail.com', '677.966.766-12'),
+(9, 'Gustavo', 'guguzinho244@gmail.com', '888.244.518-67');
 
 -- --------------------------------------------------------
 
@@ -61,6 +67,21 @@ CREATE TABLE `hospedagem` (
   `codcli` int(11) DEFAULT NULL,
   `codquarto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `hospedagem`
+--
+
+INSERT INTO `hospedagem` (`codhospedagem`, `dataentrada`, `datasaida`, `horaentrada`, `horasaida`, `totalhospedagem`, `codcli`, `codquarto`) VALUES
+(1, '0000-00-00', '0000-00-00', '14:29:00', '04:56:00', 230.00, 1, 4),
+(2, '0000-00-00', '0000-00-00', '14:36:00', '04:59:00', 230.00, 9, 4),
+(3, '0000-00-00', '0000-00-00', '14:40:00', '05:02:00', 230.00, 6, 4),
+(4, '0000-00-00', '0000-00-00', '14:10:00', '05:26:00', 353.00, 2, 1),
+(5, '0000-00-00', '2026-03-12', '14:12:00', '12:32:47', 199.00, 5, 1),
+(6, '0000-00-00', '0000-00-00', '12:38:00', '16:57:00', 456.00, 3, 3),
+(7, '0000-00-00', '0000-00-00', '12:38:00', '16:56:00', 159.00, 4, 3),
+(8, '0000-00-00', '0000-00-00', '12:38:00', '16:54:00', 298.00, 7, 3),
+(9, '0000-00-00', '0000-00-00', '12:38:00', '16:50:00', 270.00, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -80,11 +101,10 @@ CREATE TABLE `quarto` (
 --
 
 INSERT INTO `quarto` (`codquarto`, `quarto`, `andar`, `tipo`) VALUES
-(1, '1° andar', '1', 'amigos - 1 camas'),
-(2, '2° andar', '1', '4 barços - 4 camas'),
-(3, '2° andar', '1', 'familia - 4 camas'),
-(4, '1° andar', '1', 'amigos - 1 camas'),
-(5, '7° andar', '1', 'namorados - 1 camas');
+(1, '2', '2°Andar', 'amigos - 4 camas'),
+(3, '1', '2°Andar', 'familia - 4 camas'),
+(4, '2', '1° andar', 'amigos - 1 camas'),
+(5, '6', '7° andar', 'namorados - 1 camas');
 
 -- --------------------------------------------------------
 
@@ -109,7 +129,17 @@ INSERT INTO `servico` (`codservico`, `servico`, `qtde`, `valor`, `tipo`) VALUES
 (2, 'Doritos', 0, 25.00, 'comida'),
 (3, 'Lava roupas', 0, 10.00, 'Limpeza'),
 (4, 'Macacão de banho', 0, 29.00, 'Lazer'),
-(5, 'Frentista', 0, 7.00, 'Lazer');
+(5, 'Frentista', 0, 7.00, 'Lazer'),
+(6, 'Guaraná', 13, 17.00, 'bebida'),
+(7, 'Coca Cola', 22, 59.00, 'bebida'),
+(8, 'Xereta', 148, 259.99, 'bebida'),
+(9, 'It Laranja', 2, 199.00, 'bebida'),
+(10, 'Vedete', 7, 159.00, 'bebida'),
+(11, 'Fandangos', 57, 29.00, 'comida'),
+(12, 'Pururuca', 1147, 200.00, 'comida'),
+(13, 'Pringles', 100, 2.00, 'comida'),
+(14, 'Rosca', 76, 189.00, 'Comida'),
+(15, 'Quebra queixo', 36, 119.00, 'bebida');
 
 -- --------------------------------------------------------
 
@@ -123,6 +153,14 @@ CREATE TABLE `servicohospedagem` (
   `dataservico` date DEFAULT NULL,
   `horaservico` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `servicohospedagem`
+--
+
+INSERT INTO `servicohospedagem` (`idhospedagem`, `idservico`, `dataservico`, `horaservico`) VALUES
+(NULL, NULL, NULL, NULL),
+(NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -173,13 +211,13 @@ ALTER TABLE `servicohospedagem`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `codcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `hospedagem`
 --
 ALTER TABLE `hospedagem`
-  MODIFY `codhospedagem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codhospedagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `quarto`
@@ -191,7 +229,7 @@ ALTER TABLE `quarto`
 -- AUTO_INCREMENT de tabela `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `codservico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codservico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restrições para tabelas despejadas
