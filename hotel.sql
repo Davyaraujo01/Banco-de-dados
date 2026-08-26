@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/08/2026 às 22:54
+-- Tempo de geração: 21/08/2026 às 22:58
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -68,6 +68,21 @@ CREATE TABLE `hospedagem` (
   `codquarto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `hospedagem`
+--
+
+INSERT INTO `hospedagem` (`codhospedagem`, `dataentrada`, `datasaida`, `horaentrada`, `horasaida`, `totalhospedagem`, `codcli`, `codquarto`) VALUES
+(1, '0000-00-00', '0000-00-00', '14:29:00', '04:56:00', 230.00, 1, 4),
+(2, '0000-00-00', '0000-00-00', '14:36:00', '04:59:00', 230.00, 9, 4),
+(3, '0000-00-00', '0000-00-00', '14:40:00', '05:02:00', 230.00, 6, 4),
+(4, '0000-00-00', '0000-00-00', '14:10:00', '05:26:00', 353.00, 2, 1),
+(5, '0000-00-00', '0000-00-00', '14:12:00', '05:30:00', 199.00, 5, 1),
+(6, '0000-00-00', '0000-00-00', '12:38:00', '16:57:00', 456.00, 3, 3),
+(7, '0000-00-00', '0000-00-00', '12:38:00', '16:56:00', 159.00, 4, 3),
+(8, '0000-00-00', '0000-00-00', '12:38:00', '16:54:00', 298.00, 7, 3),
+(9, '0000-00-00', '0000-00-00', '12:38:00', '16:50:00', 270.00, 8, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -86,11 +101,10 @@ CREATE TABLE `quarto` (
 --
 
 INSERT INTO `quarto` (`codquarto`, `quarto`, `andar`, `tipo`) VALUES
-(1, '1° andar', '1', 'amigos - 1 camas'),
-(2, '2° andar', '1', '4 barços - 4 camas'),
-(3, '2° andar', '1', 'familia - 4 camas'),
-(4, '1° andar', '1', 'amigos - 1 camas'),
-(5, '7° andar', '1', 'namorados - 1 camas');
+(1, '2', '2°Andar', 'amigos - 1 camas'),
+(3, '1', '2°Andar', 'familia - 4 camas'),
+(4, '2', '1° andar', 'amigos - 1 camas'),
+(5, '6', '7° andar', 'namorados - 1 camas');
 
 -- --------------------------------------------------------
 
@@ -203,7 +217,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `hospedagem`
 --
 ALTER TABLE `hospedagem`
-  MODIFY `codhospedagem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codhospedagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `quarto`
